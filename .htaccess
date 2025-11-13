@@ -1,0 +1,19 @@
+# STRONG HTACCESS PROTECTION
+
+<Files ~ "^.\*\.([Ee][Nn][Vv])">
+order allow,deny
+deny from all
+satisfy all
+</Files>
+
+# Redirect to public folder then index.php
+
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.\*)$ /public/$1 [L]
+
+# If the requested resource is not a file or directory
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.\*)$ /public/index.php [L]
