@@ -22,6 +22,11 @@ return Application::configure(basePath: dirname(__DIR__))
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
         ]);
         
+        // Register admin middleware alias
+        $middleware->alias([
+            'admin' => \App\Http\Middleware\Admin::class,
+        ]);
+        
         // CORS middleware for API
         $middleware->validateCsrfTokens(except: [
             'api/*',

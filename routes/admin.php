@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-// Admin routes - protected by auth middleware
-Route::middleware(['auth', 'web'])->prefix('admin')->name('admin.')->group(function () {
+// Admin routes - protected by auth and admin middleware
+Route::middleware(['auth', 'admin', 'web'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', function () {
         return view('admin.dashboard');
     })->name('dashboard');
@@ -15,5 +15,7 @@ Route::middleware(['auth', 'web'])->prefix('admin')->name('admin.')->group(funct
 // Admin logout route
 Route::post('/admin/logout', function () {
     Auth::logout();
-    return redirect('/admin');
-})->middleware('auth')->name('logout');
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+    return redirect('/login');
+})->middleware('auth')->name('admin.logout');

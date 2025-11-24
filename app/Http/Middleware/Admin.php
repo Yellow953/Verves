@@ -15,6 +15,17 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+
+        $user = auth()->user();
+        
+        // Check if user is admin (either type='admin' or role='admin')
+        if (!$user->isAdmin()) {
+            abort(403, 'Unauthorized access. Admin privileges required.');
+        }
+
         return $next($request);
     }
 }
