@@ -1,19 +1,19 @@
 @extends('admin.layouts.app')
 
-@section('section')
+@section('content')
 <div class="content-wrapper">
     <div class="content-wrapper-before"></div>
     <div class="content-header row">
         <div class="content-header-left col-md-4 col-12 mb-2">
-            <h3 class="content-header-title">Tables</h3>
+            <h3 class="content-header-title">Dashboard</h3>
         </div>
         <div class="content-header-right col-md-8 col-12">
             <div class="breadcrumbs-top float-md-right">
                 <div class="breadcrumb-wrapper mr-1">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a>
                         </li>
-                        <li class="breadcrumb-item active">Tables
+                        <li class="breadcrumb-item active">Dashboard
                         </li>
                     </ol>
                 </div>
@@ -21,253 +21,159 @@
         </div>
     </div>
     <div class="content-body">
-        <!-- Basic Tables start -->
+        @include('admin.layouts._flash')
+        
+        <!-- Statistics Cards -->
         <div class="row">
-            <div class="col-12">
+            <div class="col-xl-3 col-lg-6 col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Basic Tables</h4>
-                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                        <div class="heading-elements">
-                            <ul class="list-inline mb-0">
-                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                                <li><a data-action="close"><i class="ft-x"></i></a></li>
-                            </ul>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="media d-flex">
+                                <div class="align-self-center">
+                                    <i class="la la-users font-large-2 float-left"></i>
+                                </div>
+                                <div class="media-body text-right">
+                                    <h3>{{ $stats['total_users'] }}</h3>
+                                    <span class="text-muted">Total Users</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="card-content collapse show">
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12">
+                <div class="card">
+                    <div class="card-content">
                         <div class="card-body">
-                            <p class="card-text">Using the most basic table markup, here’s how
-                                <code>.table</code>-based tables look in Bootstrap. You can use any example of
-                                below table for your table and it can be use with any type of bootstrap tables.
-                            </p>
-                            <p><span class="text-bold-600">Example 1:</span> Table with outer spacing</p>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Username</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="media d-flex">
+                                <div class="align-self-center">
+                                    <i class="la la-user-tie font-large-2 float-left"></i>
+                                </div>
+                                <div class="media-body text-right">
+                                    <h3>{{ $stats['coaches'] }}</h3>
+                                    <span class="text-muted">Coaches</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="media d-flex">
+                                <div class="align-self-center">
+                                    <i class="la la-calendar-check font-large-2 float-left"></i>
+                                </div>
+                                <div class="media-body text-right">
+                                    <h3>{{ $stats['upcoming_bookings'] }}</h3>
+                                    <span class="text-muted">Upcoming Bookings</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="media d-flex">
+                                <div class="align-self-center">
+                                    <i class="la la-dumbbell font-large-2 float-left"></i>
+                                </div>
+                                <div class="media-body text-right">
+                                    <h3>{{ $stats['active_programs'] }}</h3>
+                                    <span class="text-muted">Active Programs</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Basic Tables end -->
-        <!-- Striped rows start -->
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Striped rows</h4>
-                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                        <div class="heading-elements">
-                            <ul class="list-inline mb-0">
-                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                                <li><a data-action="close"><i class="ft-x"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card-content collapse show">
-                        <div class="card-body">
-                            <p class="card-text">Use <code class="highlighter-rouge">.table-striped</code> to
-                                add zebra-striping to any table row within the <code
-                                    class="highlighter-rouge">&lt;tbody&gt;</code>. This styling doesn't work in
-                                IE8 and below as <code>:nth-child</code> CSS selector isn't supported.</p>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">Username</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Striped rows end -->
 
-        <!-- Table head options start -->
+        <!-- Recent Users and Bookings -->
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Table head options</h4>
-                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                        <div class="heading-elements">
-                            <ul class="list-inline mb-0">
-                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                                <li><a data-action="close"><i class="ft-x"></i></a></li>
-                            </ul>
+                        <h4 class="card-title">Recent Users</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Type</th>
+                                            <th>Joined</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse($recent_users as $user)
+                                        <tr>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td><span class="badge badge-{{ $user->type === 'admin' ? 'danger' : ($user->type === 'coach' ? 'primary' : 'success') }}">{{ ucfirst($user->type) }}</span></td>
+                                            <td>{{ $user->created_at->format('M d, Y') }}</td>
+                                        </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="4" class="text-center">No users found</td>
+                                        </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                            <a href="{{ route('admin.users.index') }}" class="btn btn-primary btn-sm">View All Users</a>
                         </div>
                     </div>
-                    <div class="card-content collapse show">
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Recent Bookings</h4>
+                    </div>
+                    <div class="card-content">
                         <div class="card-body">
-                            <p>Similar to default and inverse tables, use one of two modifier classes <code
-                                    class="highlighter-rouge">.thead-default</code> or <code
-                                    class="highlighter-rouge">.thead-inverse</code> to make <code
-                                    class="highlighter-rouge">&lt;thead&gt;</code>s appear light or dark gray.
-                            </p>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">Username</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Coach</th>
+                                            <th>Client</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse($recent_bookings as $booking)
+                                        <tr>
+                                            <td>{{ $booking->coach->name }}</td>
+                                            <td>{{ $booking->client->name }}</td>
+                                            <td>{{ $booking->session_date->format('M d, Y H:i') }}</td>
+                                            <td><span class="badge badge-{{ $booking->status === 'confirmed' ? 'success' : ($booking->status === 'cancelled' ? 'danger' : 'warning') }}">{{ ucfirst($booking->status) }}</span></td>
+                                        </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="4" class="text-center">No bookings found</td>
+                                        </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                            <a href="{{ route('admin.bookings.index') }}" class="btn btn-primary btn-sm">View All Bookings</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Table head options end -->
-
-        <!-- Bordered table start -->
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Bordered table</h4>
-                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                        <div class="heading-elements">
-                            <ul class="list-inline mb-0">
-                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                                <li><a data-action="close"><i class="ft-x"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card-content collapse show">
-                        <div class="card-body">
-                            <p class="card-text">Add <code>.table-bordered</code> for borders on all sides of
-                                the table and cells.</p>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-bordered mb-0">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Bordered table end -->
     </div>
 </div>
 @endsection

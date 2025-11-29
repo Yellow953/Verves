@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Verves') }}</title>
+    <title>{{ config('app.name', 'Verve') }}</title>
+    @viteReactRefresh
     @vite(['resources/css/app.css', 'resources/js/frontend/main.jsx'])
 </head>
 <body>

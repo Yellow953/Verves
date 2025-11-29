@@ -1,0 +1,144 @@
+{
+  "common": {
+    "welcome": "Bienvenue sur Verve",
+    "subtitle": "Votre plateforme communautaire de fitness",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "create": "Créer",
+    "update": "Mettre à jour",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "actions": "Actions",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "submit": "Soumettre",
+    "close": "Fermer"
+  },
+  "auth": {
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "register": "S'inscrire",
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "forgotPassword": "Mot de passe oublié?",
+    "rememberMe": "Se souvenir de moi",
+    "signIn": "Se connecter",
+    "signUp": "S'inscrire",
+    "dontHaveAccount": "Vous n'avez pas de compte?",
+    "alreadyHaveAccount": "Vous avez déjà un compte?",
+    "resetPassword": "Réinitialiser le mot de passe",
+    "sendResetLink": "Envoyer le lien de réinitialisation"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "dashboard": "Tableau de bord",
+    "forum": "Forum",
+    "programs": "Programmes",
+    "bookings": "Réservations",
+    "profile": "Profil",
+    "settings": "Paramètres"
+  },
+  "forum": {
+    "title": "Forum communautaire",
+    "categories": "Catégories",
+    "topics": "Sujets",
+    "posts": "Messages",
+    "createTopic": "Créer un sujet",
+    "reply": "Répondre",
+    "noTopics": "Aucun sujet trouvé",
+    "noPosts": "Aucun message trouvé",
+    "latest": "Derniers",
+    "replies": "Réponses",
+    "views": "Vues"
+  },
+  "coach": {
+    "title": "Entraîneurs",
+    "findCoach": "Trouver un entraîneur",
+    "specialization": "Spécialisation",
+    "bio": "Biographie",
+    "bookSession": "Réserver une séance",
+    "viewProfile": "Voir le profil",
+    "myClients": "Mes clients",
+    "myPrograms": "Mes programmes"
+  },
+  "program": {
+    "title": "Programmes",
+    "myPrograms": "Mes programmes",
+    "createProgram": "Créer un programme",
+    "exercises": "Exercices",
+    "duration": "Durée",
+    "status": "Statut",
+    "active": "Actif",
+    "completed": "Terminé",
+    "draft": "Brouillon"
+  },
+  "booking": {
+    "title": "Réservations",
+    "myBookings": "Mes réservations",
+    "bookSession": "Réserver une séance",
+    "sessionDate": "Date de la séance",
+    "duration": "Durée",
+    "location": "Lieu",
+    "status": "Statut",
+    "pending": "En attente",
+    "confirmed": "Confirmé",
+    "cancelled": "Annulé",
+    "completed": "Terminé"
+  },
+  "profile": {
+    "title": "Profil",
+    "editProfile": "Modifier le profil",
+    "personalInfo": "Informations personnelles",
+    "name": "Nom",
+    "phone": "Téléphone",
+    "bio": "Biographie",
+    "updateProfile": "Mettre à jour le profil"
+  },
+  "home": {
+    "hero": {
+      "title": "Transformez votre corps, transformez votre vie",
+      "subtitle": "Rejoignez des milliers de membres qui atteignent leurs objectifs de fitness grâce à un coaching personnalisé et au soutien communautaire",
+      "ctaPrimary": "Commencer",
+      "ctaSecondary": "En savoir plus"
+    },
+    "features": {
+      "title": "Pourquoi choisir Verve",
+      "subtitle": "Tout ce dont vous avez besoin pour atteindre vos objectifs de fitness",
+      "personalizedCoaching": {
+        "title": "Coaching personnalisé",
+        "description": "Travaillez avec des entraîneurs certifiés qui créent des programmes sur mesure adaptés à vos objectifs"
+      },
+      "community": {
+        "title": "Communauté active",
+        "description": "Connectez-vous avec des personnes partageant les mêmes idées, partagez vos progrès et restez motivé"
+      },
+      "trackProgress": {
+        "title": "Suivre les progrès",
+        "description": "Surveillez votre parcours avec des analyses détaillées et des photos de progression"
+      },
+      "flexibleBooking": {
+        "title": "Réservation flexible",
+        "description": "Planifiez des séances qui s'adaptent à votre style de vie, en ligne ou en personne"
+      }
+    },
+    "stats": {
+      "members": "Membres actifs",
+      "coaches": "Entraîneurs experts",
+      "programs": "Programmes d'entraînement",
+      "sessions": "Séances terminées"
+    },
+    "cta": {
+      "title": "Prêt à commencer votre parcours fitness?",
+      "subtitle": "Rejoignez Verve aujourd'hui et faites le premier pas vers un vous plus sain",
+      "button": "Commencer maintenant"
+    }
+  }
+}
+

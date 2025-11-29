@@ -1,0 +1,144 @@
+{
+  "common": {
+    "welcome": "Welcome to Verve",
+    "subtitle": "Your fitness community platform",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "update": "Update",
+    "search": "Search",
+    "filter": "Filter",
+    "actions": "Actions",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "close": "Close"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password?",
+    "rememberMe": "Remember Me",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "resetPassword": "Reset Password",
+    "sendResetLink": "Send Password Reset Link"
+  },
+  "navigation": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "forum": "Forum",
+    "programs": "Programs",
+    "bookings": "Bookings",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "forum": {
+    "title": "Community Forum",
+    "categories": "Categories",
+    "topics": "Topics",
+    "posts": "Posts",
+    "createTopic": "Create Topic",
+    "reply": "Reply",
+    "noTopics": "No topics found",
+    "noPosts": "No posts found",
+    "latest": "Latest",
+    "replies": "Replies",
+    "views": "Views"
+  },
+  "coach": {
+    "title": "Coaches",
+    "findCoach": "Find a Coach",
+    "specialization": "Specialization",
+    "bio": "Bio",
+    "bookSession": "Book Session",
+    "viewProfile": "View Profile",
+    "myClients": "My Clients",
+    "myPrograms": "My Programs"
+  },
+  "program": {
+    "title": "Programs",
+    "myPrograms": "My Programs",
+    "createProgram": "Create Program",
+    "exercises": "Exercises",
+    "duration": "Duration",
+    "status": "Status",
+    "active": "Active",
+    "completed": "Completed",
+    "draft": "Draft"
+  },
+  "booking": {
+    "title": "Bookings",
+    "myBookings": "My Bookings",
+    "bookSession": "Book a Session",
+    "sessionDate": "Session Date",
+    "duration": "Duration",
+    "location": "Location",
+    "status": "Status",
+    "pending": "Pending",
+    "confirmed": "Confirmed",
+    "cancelled": "Cancelled",
+    "completed": "Completed"
+  },
+  "profile": {
+    "title": "Profile",
+    "editProfile": "Edit Profile",
+    "personalInfo": "Personal Information",
+    "name": "Name",
+    "phone": "Phone",
+    "bio": "Bio",
+    "updateProfile": "Update Profile"
+  },
+  "home": {
+    "hero": {
+      "title": "Transform Your Body, Transform Your Life",
+      "subtitle": "Join thousands of members achieving their fitness goals with personalized coaching and community support",
+      "ctaPrimary": "Get Started",
+      "ctaSecondary": "Learn More"
+    },
+    "features": {
+      "title": "Why Choose Verve",
+      "subtitle": "Everything you need to reach your fitness goals",
+      "personalizedCoaching": {
+        "title": "Personalized Coaching",
+        "description": "Work with certified trainers who create custom programs tailored to your goals"
+      },
+      "community": {
+        "title": "Active Community",
+        "description": "Connect with like-minded individuals, share progress, and stay motivated"
+      },
+      "trackProgress": {
+        "title": "Track Progress",
+        "description": "Monitor your journey with detailed analytics and progress photos"
+      },
+      "flexibleBooking": {
+        "title": "Flexible Booking",
+        "description": "Schedule sessions that fit your lifestyle, online or in-person"
+      }
+    },
+    "stats": {
+      "members": "Active Members",
+      "coaches": "Expert Coaches",
+      "programs": "Training Programs",
+      "sessions": "Sessions Completed"
+    },
+    "cta": {
+      "title": "Ready to Start Your Fitness Journey?",
+      "subtitle": "Join Verve today and take the first step towards a healthier you",
+      "button": "Get Started Now"
+    }
+  }
+}
+

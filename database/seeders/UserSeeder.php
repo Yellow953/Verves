@@ -16,10 +16,10 @@ class UserSeeder extends Seeder
     {
         // Create Admin User
         User::firstOrCreate(
-            ['email' => 'admin@verves.com'],
+            ['email' => 'admin@verve.com'],
             [
                 'name' => 'Admin User',
-                'email' => 'admin@verves.com',
+                'email' => 'admin@verve.com',
                 'password' => Hash::make('password'), // Change this in production!
                 'phone' => '+1234567890',
                 'role' => 'admin',
@@ -30,10 +30,10 @@ class UserSeeder extends Seeder
 
         // Create Sample Coach
         User::firstOrCreate(
-            ['email' => 'coach@verves.com'],
+            ['email' => 'coach@verve.com'],
             [
                 'name' => 'John Coach',
-                'email' => 'coach@verves.com',
+                'email' => 'coach@verve.com',
                 'password' => Hash::make('password'), // Change this in production!
                 'phone' => '+1234567891',
                 'role' => 'user',
@@ -46,10 +46,10 @@ class UserSeeder extends Seeder
 
         // Create Sample Client
         User::firstOrCreate(
-            ['email' => 'client@verves.com'],
+            ['email' => 'client@verve.com'],
             [
                 'name' => 'Jane Client',
-                'email' => 'client@verves.com',
+                'email' => 'client@verve.com',
                 'password' => Hash::make('password'), // Change this in production!
                 'phone' => '+1234567892',
                 'role' => 'user',
@@ -59,8 +59,8 @@ class UserSeeder extends Seeder
         );
 
         $this->command->info('Users seeded successfully!');
-        $this->command->info('Admin: admin@verves.com / password');
-        $this->command->info('Coach: coach@verves.com / password');
-        $this->command->info('Client: client@verves.com / password');
+        $this->command->info('Admin: admin@verve.com / password');
+        $this->command->info('Coach: coach@verve.com / password');
+        $this->command->info('Client: client@verve.com / password');
     }
 }

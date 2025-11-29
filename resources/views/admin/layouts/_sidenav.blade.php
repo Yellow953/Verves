@@ -2,7 +2,7 @@
     data-img="{{ asset('admin-assets/images/backgrounds/02.jpg') }}">
     <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">
-            <li class="nav-item mr-auto"><a class="navbar-brand" href="index.html"><img class="brand-logo"
+            <li class="nav-item mr-auto"><a class="navbar-brand" href="{{ route('admin.dashboard') }}"><img class="brand-logo"
                         alt="Verve admin logo" src="{{ asset('admin-assets/images/logo/logo.png') }}" />
                     <h3 class="brand-text">Verve</h3>
                 </a></li>
@@ -11,30 +11,12 @@
     </div>
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item"><a href="index.html"><i class="ft-home"></i><span class="menu-title"
-                        data-i18n="">Dashboard</span></a>
-            </li>
-            <li class=" nav-item"><a href="charts.html"><i class="ft-pie-chart"></i><span class="menu-title"
-                        data-i18n="">Charts</span></a>
-            </li>
-            <li class=" nav-item"><a href="icons.html"><i class="ft-droplet"></i><span class="menu-title"
-                        data-i18n="">Icons</span></a>
-            </li>
-            <li class=" nav-item"><a href="cards.html"><i class="ft-layers"></i><span class="menu-title"
-                        data-i18n="">Cards</span></a>
-            </li>
-            <li class=" nav-item"><a href="buttons.html"><i class="ft-box"></i><span class="menu-title"
-                        data-i18n="">Buttons</span></a>
-            </li>
-            <li class=" nav-item"><a href="typography.html"><i class="ft-bold"></i><span class="menu-title"
-                        data-i18n="">Typography</span></a>
-            </li>
-            <li class="active"><a href="tables.html"><i class="ft-credit-card"></i><span class="menu-title"
-                        data-i18n="">Tables</span></a>
-            </li>
-            <li class=" nav-item"><a href="form-elements.html"><i class="ft-layout"></i><span class="menu-title"
-                        data-i18n="">Form Elements</span></a>
-            </li>
+            <li class="nav-item"><a href="{{ route('admin.dashboard') }}"><i class="ft-home"></i><span class="menu-title">Dashboard</span></a></li>
+            <li class="nav-item"><a href="{{ route('admin.users.index') }}"><i class="ft-users"></i><span class="menu-title">Users</span></a></li>
+            <li class="nav-item"><a href="{{ route('admin.programs.index') }}"><i class="ft-layers"></i><span class="menu-title">Programs</span></a></li>
+            <li class="nav-item"><a href="{{ route('admin.bookings.index') }}"><i class="ft-calendar"></i><span class="menu-title">Bookings</span></a></li>
+            <li class="nav-item"><a href="{{ route('admin.subscriptions.index') }}"><i class="ft-credit-card"></i><span class="menu-title">Subscriptions</span></a></li>
+            <li class="nav-item"><a href="{{ route('admin.categories.index') }}"><i class="ft-folder"></i><span class="menu-title">Forum Categories</span></a></li>
         </ul>
     </div>
     <div class="navigation-background"></div>

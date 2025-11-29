@@ -1,16 +1,28 @@
 import React from 'react';
+import Header from './components/layout/Header';
+import Hero from './components/home/Hero';
+import Section2 from './components/home/Section2';
+import Services from './components/home/Services';
+import Stats from './components/home/Stats';
+import Courses from './components/home/Courses';
+import About from './components/home/About';
+import Coaches from './components/home/Coaches';
+import CTA from './components/home/CTA';
+import Footer from './components/layout/Footer';
 
 function App() {
     return (
-        <div className="min-h-screen bg-gray-100">
-            <div className="container mx-auto px-4 py-8">
-                <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
-                    Welcome to Verves
-                </h1>
-                <p className="text-center text-gray-600 text-lg">
-                    Your fitness community platform
-                </p>
-            </div>
+        <div className="min-h-screen bg-white">
+            <Header />
+            <Hero />
+            <Section2 />
+            <Services />
+            <Stats />
+            <Courses />
+            <About />
+            <Coaches />
+            <CTA />
+            <Footer />
         </div>
     );
 }
