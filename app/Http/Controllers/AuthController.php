@@ -17,13 +17,20 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'nullable|string|max:20',
             'password' => 'required|string|min:8|confirmed',
+            'type' => 'nullable|in:client,coach',
         ]);
 
+        $type = $request->type ?? 'client'; // Default to client if not specified
+        
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'phone' => $request->phone,
             'password' => Hash::make($request->password),
+            'type' => $type,
+            'role' => 'user', // Set default role for regular users
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;

@@ -54,7 +54,4 @@
     {{ __('Forgot Your Password?') }}
 </a>
 @endif
-
-<p class="login-card-footer-text">Don't have an account? <a href="{{ route('register') }}" class="text-reset">Register
-        here</a></p>
 @endsection

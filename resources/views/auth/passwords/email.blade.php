@@ -32,5 +32,5 @@
     </button>
 </form>
 
-<p class="login-card-footer-text">Remember your password? <a href="{{ route('login') }}" class="text-reset">Login here</a></p>
+<p class="login-card-footer-text">Remember your password? <a href="{{ route('login') }}">Login here</a></p>
 @endsection

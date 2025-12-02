@@ -1,10 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../LanguageSwitcher';
+import AuthModal from '../auth/AuthModal';
+import { removeAuthToken, authAPI } from '../../services/api';
 
 const Header = () => {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [authMode, setAuthMode] = useState('login');
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Check if user is logged in
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      try {
+        setUser(JSON.parse(userData));
+      } catch (e) {
+        localStorage.removeItem('user');
+      }
+    }
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      // Try to call logout API if token exists
+      const token = localStorage.getItem('auth_token');
+      if (token) {
+        await authAPI.logout();
+      }
+    } catch (error) {
+      // Even if logout fails, clear local storage
+      console.error('Logout error:', error);
+    } finally {
+      removeAuthToken();
+      localStorage.removeItem('user');
+      setUser(null);
+      window.location.reload();
+    }
+  };
+
+  const openAuthModal = (mode = 'login') => {
+    setAuthMode(mode);
+    setIsAuthModalOpen(true);
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
@@ -32,18 +72,37 @@ const Header = () => {
               {t('coach.title')}
             </a>
             <LanguageSwitcher />
-            <a
-              href="/login"
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-            >
-              {t('auth.login')}
-            </a>
-            <a
-              href="/register"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all font-semibold shadow-md"
-            >
-              {t('auth.signUp')}
-            </a>
+            {user ? (
+              <>
+                <a
+                  href="/dashboard"
+                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                >
+                  {t('navigation.dashboard')}
+                </a>
+                <button
+                  onClick={handleLogout}
+                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                >
+                  {t('auth.logout')}
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => openAuthModal('login')}
+                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                >
+                  {t('auth.login')}
+                </button>
+                <button
+                  onClick={() => openAuthModal('signup')}
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all font-semibold shadow-md"
+                >
+                  {t('auth.signUp')}
+                </button>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -79,17 +138,46 @@ const Header = () => {
             <div className="flex items-center justify-between pt-4 border-t border-gray-200">
               <LanguageSwitcher />
               <div className="space-x-4">
-                <a href="/login" className="text-gray-700 hover:text-blue-600 transition-colors">
-                  {t('auth.login')}
-                </a>
-                <a href="/register" className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
-                  {t('auth.signUp')}
-                </a>
+                {user ? (
+                  <>
+                    <a href="/dashboard" className="text-gray-700 hover:text-blue-600 transition-colors">
+                      {t('navigation.dashboard')}
+                    </a>
+                    <button
+                      onClick={handleLogout}
+                      className="text-gray-700 hover:text-blue-600 transition-colors"
+                    >
+                      {t('auth.logout')}
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      onClick={() => openAuthModal('login')}
+                      className="text-gray-700 hover:text-blue-600 transition-colors"
+                    >
+                      {t('auth.login')}
+                    </button>
+                    <button
+                      onClick={() => openAuthModal('signup')}
+                      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all"
+                    >
+                      {t('auth.signUp')}
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </div>
         )}
       </nav>
+      
+      {/* Auth Modal */}
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+        initialMode={authMode}
+      />
     </header>
   );
 };

@@ -33,10 +33,4 @@ Route::middleware(['auth', 'admin', 'web'])->prefix('admin')->name('admin.')->gr
     Route::resource('categories', CategoryController::class);
 });
 
-// Admin logout route
-Route::post('/admin/logout', function () {
-    Auth::logout();
-    request()->session()->invalidate();
-    request()->session()->regenerateToken();
-    return redirect('/login');
-})->middleware('auth')->name('admin.logout');
+// Note: Logout route is now in web.php at /admin/logout
