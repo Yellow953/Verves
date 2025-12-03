@@ -12,12 +12,25 @@ use App\Http\Controllers\Api\BookingController;
 use App\Http\Controllers\Api\ProgressTrackingController;
 use App\Http\Controllers\Api\SubscriptionController;
 use App\Http\Controllers\Api\ClientHealthDataController;
+use App\Http\Controllers\Api\CoachController;
+use App\Http\Controllers\Api\ExerciseController;
 
 // Public API routes
 Route::prefix('v1')->group(function () {
     // Authentication routes
     Route::post('/register', [AuthController::class, 'register'])->name('api.register');
     Route::post('/login', [AuthController::class, 'login'])->name('api.login');
+    
+    // Public coaches routes (no auth required for browsing)
+    Route::get('/coaches', [CoachController::class, 'index'])->name('api.coaches.index');
+    Route::get('/coaches/{id}', [CoachController::class, 'show'])->name('api.coaches.show');
+    Route::get('/coaches/{id}/available-slots', [CoachController::class, 'availableSlots'])->name('api.coaches.availableSlots');
+    
+    // Public exercises library (for coaches to browse)
+    Route::get('/exercises', [ExerciseController::class, 'index'])->name('api.exercises.index');
+    Route::get('/exercises/{id}', [ExerciseController::class, 'show'])->name('api.exercises.show');
+    Route::get('/exercises/muscle-groups', [ExerciseController::class, 'muscleGroups'])->name('api.exercises.muscleGroups');
+    Route::get('/exercises/equipment-types', [ExerciseController::class, 'equipmentTypes'])->name('api.exercises.equipmentTypes');
     
     // Public forum routes (no auth required)
     Route::get('/categories', [CategoryController::class, 'index'])->name('api.categories.index');

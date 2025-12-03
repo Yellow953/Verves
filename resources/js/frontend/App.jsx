@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Hero from './components/home/Hero';
 import Section2 from './components/home/Section2';
@@ -9,11 +10,12 @@ import About from './components/home/About';
 import Coaches from './components/home/Coaches';
 import CTA from './components/home/CTA';
 import Footer from './components/layout/Footer';
+import BookSession from './components/booking/BookSession';
+import Dashboard from './components/coach/Dashboard';
 
-function App() {
+function HomePage() {
     return (
-        <div className="min-h-screen bg-white">
-            <Header />
+        <>
             <Hero />
             <Section2 />
             <Services />
@@ -22,8 +24,27 @@ function App() {
             <About />
             <Coaches />
             <CTA />
-            <Footer />
-        </div>
+        </>
+    );
+}
+
+function App() {
+    return (
+        <Router>
+            <div className="min-h-screen bg-white">
+                <Routes>
+                    <Route path="/" element={
+                        <>
+                            <Header />
+                            <HomePage />
+                            <Footer />
+                        </>
+                    } />
+                    <Route path="/coaches/:id/book" element={<BookSession />} />
+                    <Route path="/coach/dashboard" element={<Dashboard />} />
+                </Routes>
+            </div>
+        </Router>
     );
 }
 

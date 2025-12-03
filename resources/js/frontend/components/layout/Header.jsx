@@ -74,12 +74,14 @@ const Header = () => {
             <LanguageSwitcher />
             {user ? (
               <>
-                <a
-                  href="/dashboard"
-                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-                >
-                  {t('navigation.dashboard')}
-                </a>
+                {user.type === 'coach' && (
+                  <a
+                    href="/coach/dashboard"
+                    className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                  >
+                    {t('navigation.dashboard')}
+                  </a>
+                )}
                 <button
                   onClick={handleLogout}
                   className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
@@ -140,9 +142,11 @@ const Header = () => {
               <div className="space-x-4">
                 {user ? (
                   <>
-                    <a href="/dashboard" className="text-gray-700 hover:text-blue-600 transition-colors">
-                      {t('navigation.dashboard')}
-                    </a>
+                    {user.type === 'coach' && (
+                      <a href="/coach/dashboard" className="text-gray-700 hover:text-blue-600 transition-colors">
+                        {t('navigation.dashboard')}
+                      </a>
+                    )}
                     <button
                       onClick={handleLogout}
                       className="text-gray-700 hover:text-blue-600 transition-colors"
