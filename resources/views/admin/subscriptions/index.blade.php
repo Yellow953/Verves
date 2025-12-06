@@ -14,6 +14,11 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">All Subscriptions</h4>
+                        <div class="heading-elements">
+                            <a href="{{ route('admin.subscriptions.create') }}" class="btn btn-primary">
+                                <i class="ft-plus"></i> Add Subscription
+                            </a>
+                        </div>
                     </div>
                     <div class="card-content">
                         <div class="card-body">
@@ -42,7 +47,11 @@
                                             <td>{{ ucfirst($subscription->billing_cycle) }}</td>
                                             <td><span class="badge badge-{{ $subscription->status === 'active' ? 'success' : 'secondary' }}">{{ ucfirst($subscription->status) }}</span></td>
                                             <td>
-                                                <a href="{{ route('admin.subscriptions.show', $subscription->id) }}" class="btn btn-sm btn-info">View</a>
+                                                <div class="btn-group" role="group">
+                                                    <a href="{{ route('admin.subscriptions.show', $subscription->id) }}" class="btn btn-sm btn-info" title="View">
+                                                        <i class="ft-eye"></i>
+                                                    </a>
+                                                </div>
                                             </td>
                                         </tr>
                                         @empty

@@ -103,7 +103,7 @@ body {
 
 .login-card .login-btn {
   padding: 12px 20px;
-  background: linear-gradient(135deg, #2563eb 0%, #9333ea 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
   border: none;
   border-radius: 8px;
   font-size: 16px;
@@ -118,7 +118,7 @@ body {
 }
 
 .login-card .login-btn:hover {
-  background: linear-gradient(135deg, #1d4ed8 0%, #7e22ce 100%);
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
   box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
   transform: translateY(-1px);
 }

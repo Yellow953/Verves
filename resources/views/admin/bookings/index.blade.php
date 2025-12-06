@@ -42,7 +42,11 @@
                                             <td>{{ ucfirst(str_replace('_', ' ', $booking->session_type)) }}</td>
                                             <td><span class="badge badge-{{ $booking->status === 'confirmed' ? 'success' : ($booking->status === 'cancelled' ? 'danger' : 'warning') }}">{{ ucfirst($booking->status) }}</span></td>
                                             <td>
-                                                <a href="{{ route('admin.bookings.show', $booking->id) }}" class="btn btn-sm btn-info">View</a>
+                                                <div class="btn-group" role="group">
+                                                    <a href="{{ route('admin.bookings.show', $booking->id) }}" class="btn btn-sm btn-info" title="View">
+                                                        <i class="ft-eye"></i>
+                                                    </a>
+                                                </div>
                                             </td>
                                         </tr>
                                         @empty

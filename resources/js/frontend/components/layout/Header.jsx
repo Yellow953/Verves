@@ -62,14 +62,17 @@ const Header = () => {
             <a href="#home" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
               {t('navigation.home')}
             </a>
-            <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-              Services
+            <a href="/services" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              {t('navigation.services')}
             </a>
             <a href="#courses" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
               Courses
             </a>
-            <a href="#coaches" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+            <a href="/coaches" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
               {t('coach.title')}
+            </a>
+            <a href="/forum" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              {t('navigation.forum')}
             </a>
             <LanguageSwitcher />
             {user ? (
@@ -99,7 +102,7 @@ const Header = () => {
                 </button>
                 <button
                   onClick={() => openAuthModal('signup')}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all font-semibold shadow-md"
+                  className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-2.5 rounded-lg hover:from-blue-700 hover:to-blue-900 transition-all font-semibold shadow-md"
                 >
                   {t('auth.signUp')}
                 </button>
@@ -128,14 +131,17 @@ const Header = () => {
             <a href="#home" className="block text-gray-700 hover:text-blue-600 transition-colors">
               {t('navigation.home')}
             </a>
-            <a href="#services" className="block text-gray-700 hover:text-blue-600 transition-colors">
-              Services
+            <a href="/services" className="block text-gray-700 hover:text-blue-600 transition-colors">
+              {t('navigation.services')}
             </a>
             <a href="#courses" className="block text-gray-700 hover:text-blue-600 transition-colors">
               Courses
             </a>
-            <a href="#coaches" className="block text-gray-700 hover:text-blue-600 transition-colors">
+            <a href="/coaches" className="block text-gray-700 hover:text-blue-600 transition-colors">
               {t('coach.title')}
+            </a>
+            <a href="/forum" className="block text-gray-700 hover:text-blue-600 transition-colors">
+              {t('navigation.forum')}
             </a>
             <div className="flex items-center justify-between pt-4 border-t border-gray-200">
               <LanguageSwitcher />
@@ -164,7 +170,7 @@ const Header = () => {
                     </button>
                     <button
                       onClick={() => openAuthModal('signup')}
-                      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all"
+                      className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-blue-900 transition-all"
                     >
                       {t('auth.signUp')}
                     </button>

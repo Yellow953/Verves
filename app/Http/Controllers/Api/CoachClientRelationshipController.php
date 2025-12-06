@@ -39,18 +39,60 @@ class CoachClientRelationshipController extends Controller
 
     /**
      * Store a newly created relationship (request).
+     * Can create a new client user or use existing client_id.
      */
     public function store(Request $request): JsonResponse
     {
         $user = $request->user();
 
-        $validated = $request->validate([
-            'coach_id' => 'required|exists:users,id',
-            'client_id' => 'nullable|exists:users,id',
-            'notes' => 'nullable|string',
-        ]);
+        // Check if creating a new client or using existing
+        $createNewClient = $request->has('create_new_client') && $request->create_new_client === true;
 
-        // Set client_id based on user type
+        if ($createNewClient) {
+            // Validate new client data
+            $validated = $request->validate([
+                'coach_id' => 'required|exists:users,id',
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users',
+                'phone' => 'nullable|string|max:20',
+                'address' => 'nullable|string',
+                'notes' => 'nullable|string', // Medical case / description
+                'password' => 'nullable|string|min:8', // Optional, will generate if not provided
+            ]);
+
+            // Verify the coach_id matches the authenticated user
+            if ($validated['coach_id'] != $user->id) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Unauthorized',
+                ], 403);
+            }
+
+            // Generate password if not provided
+            $password = $validated['password'] ?? \Illuminate\Support\Str::random(12);
+
+            // Create new client user
+            $client = \App\Models\User::create([
+                'name' => $validated['name'],
+                'email' => $validated['email'],
+                'phone' => $validated['phone'] ?? null,
+                'address' => $validated['address'] ?? null,
+                'password' => \Illuminate\Support\Facades\Hash::make($password),
+                'type' => 'client',
+                'role' => 'user',
+            ]);
+
+            $validated['client_id'] = $client->id;
+        } else {
+            // Use existing client
+            $validated = $request->validate([
+                'coach_id' => 'required|exists:users,id',
+                'client_id' => 'required|exists:users,id',
+                'notes' => 'nullable|string',
+            ]);
+        }
+
+        // Set client_id based on user type (for backward compatibility)
         if ($user->isClient()) {
             $validated['client_id'] = $user->id;
         } elseif ($user->isCoach()) {
@@ -61,7 +103,7 @@ class CoachClientRelationshipController extends Controller
                 ], 422);
             }
             // Verify the coach_id matches the authenticated user
-            if ($validated['coach_id'] !== $user->id) {
+            if ($validated['coach_id'] != $user->id) {
                 return response()->json([
                     'success' => false,
                     'message' => 'Unauthorized',
@@ -91,15 +133,25 @@ class CoachClientRelationshipController extends Controller
             ], 422);
         }
 
-        $validated['status'] = 'pending';
-        $relationship = CoachClientRelationship::create($validated);
-        $relationship->load(['coach:id,name,email,type', 'client:id,name,email,type']);
+        $validated['status'] = 'active'; // Auto-activate when coach creates client
+        $validated['start_date'] = now()->toDateString();
 
-        return response()->json([
+        $relationship = CoachClientRelationship::create($validated);
+        $relationship->load(['coach:id,name,email,type', 'client:id,name,email,type,phone,address']);
+
+        $response = [
             'success' => true,
-            'message' => 'Relationship request created successfully',
+            'message' => $createNewClient ? 'Client created and relationship established successfully' : 'Relationship request created successfully',
             'data' => $relationship,
-        ], 201);
+        ];
+
+        // Include generated password if new client was created
+        if ($createNewClient && !$request->has('password')) {
+            $response['generated_password'] = $password;
+            $response['message'] .= '. Please save the generated password for the client.';
+        }
+
+        return response()->json($response, 201);
     }
 
     /**

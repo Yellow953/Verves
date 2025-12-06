@@ -34,7 +34,7 @@
 </head>
 
 <body class="vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar" data-open="click"
-    data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="2-columns">
+    data-menu="vertical-menu" data-color="bg-gradient-x-blue-blue" data-col="2-columns">
 
     @include('admin.layouts._header')
 

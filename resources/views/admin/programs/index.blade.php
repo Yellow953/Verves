@@ -42,7 +42,11 @@
                                             <td><span class="badge badge-{{ $program->status === 'active' ? 'success' : 'secondary' }}">{{ ucfirst($program->status) }}</span></td>
                                             <td>{{ $program->created_at->format('M d, Y') }}</td>
                                             <td>
-                                                <a href="{{ route('admin.programs.show', $program->id) }}" class="btn btn-sm btn-info">View</a>
+                                                <div class="btn-group" role="group">
+                                                    <a href="{{ route('admin.programs.show', $program->id) }}" class="btn btn-sm btn-info" title="View">
+                                                        <i class="ft-eye"></i>
+                                                    </a>
+                                                </div>
                                             </td>
                                         </tr>
                                         @empty

@@ -35,9 +35,15 @@ const Services = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
               Our Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
               Everything you need to reach your fitness goals
             </p>
+            <a
+              href="/services"
+              className="inline-block bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-900 transition-all shadow-md"
+            >
+              Learn More About Our Services →
+            </a>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 items-center">
@@ -61,10 +67,10 @@ const Services = () => {
 
             {/* Center Column - Model Image */}
             <div className="relative">
-              <div className="relative bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 border border-gray-200 shadow-xl">
-                <div className="aspect-[3/4] bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center overflow-hidden">
+              <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl p-8 border border-gray-200 shadow-xl">
+                <div className="aspect-[3/4] bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center overflow-hidden">
                   <div className="text-center">
-                    <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                    <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center shadow-lg">
                       <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                       </svg>
@@ -75,7 +81,7 @@ const Services = () => {
               </div>
               {/* Decorative Elements */}
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-blue-500/20 rounded-full blur-2xl"></div>
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-purple-500/20 rounded-full blur-2xl"></div>
+              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-blue-500/20 rounded-full blur-2xl"></div>
             </div>
 
             {/* Right Column - Services 3 & 4 */}
@@ -83,7 +89,7 @@ const Services = () => {
               {services.slice(2, 4).map((service, index) => (
                 <div
                   key={index}
-                  className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-purple-500 hover:shadow-lg transition-all"
+                  className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
                 >
                   <div className="text-4xl mb-4">{service.icon}</div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">

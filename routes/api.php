@@ -27,10 +27,11 @@ Route::prefix('v1')->group(function () {
     Route::get('/coaches/{id}/available-slots', [CoachController::class, 'availableSlots'])->name('api.coaches.availableSlots');
     
     // Public exercises library (for coaches to browse)
-    Route::get('/exercises', [ExerciseController::class, 'index'])->name('api.exercises.index');
-    Route::get('/exercises/{id}', [ExerciseController::class, 'show'])->name('api.exercises.show');
+    // Note: Specific routes must come before parameterized routes
     Route::get('/exercises/muscle-groups', [ExerciseController::class, 'muscleGroups'])->name('api.exercises.muscleGroups');
     Route::get('/exercises/equipment-types', [ExerciseController::class, 'equipmentTypes'])->name('api.exercises.equipmentTypes');
+    Route::get('/exercises', [ExerciseController::class, 'index'])->name('api.exercises.index');
+    Route::get('/exercises/{id}', [ExerciseController::class, 'show'])->name('api.exercises.show');
     
     // Public forum routes (no auth required)
     Route::get('/categories', [CategoryController::class, 'index'])->name('api.categories.index');
@@ -112,6 +113,11 @@ Route::prefix('v1')->group(function () {
             Route::post('/categories', [CategoryController::class, 'store'])->name('api.categories.store');
             Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('api.categories.update');
             Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('api.categories.destroy');
+            
+            // Exercise management (admin only)
+            Route::post('/exercises', [ExerciseController::class, 'store'])->name('api.exercises.store');
+            Route::put('/exercises/{id}', [ExerciseController::class, 'update'])->name('api.exercises.update');
+            Route::delete('/exercises/{id}', [ExerciseController::class, 'destroy'])->name('api.exercises.destroy');
         });
     });
 });

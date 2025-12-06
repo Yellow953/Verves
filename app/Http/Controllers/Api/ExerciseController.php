@@ -93,5 +93,88 @@ class ExerciseController extends Controller
             'data' => $equipmentTypes,
         ]);
     }
+
+    /**
+     * Store a newly created exercise (admin only).
+     */
+    public function store(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'muscle_group' => 'nullable|string|max:255',
+            'equipment' => 'nullable|string|max:255',
+            'difficulty' => 'required|in:beginner,intermediate,advanced',
+            'instructions' => 'nullable|string',
+            'video_urls' => 'nullable|array',
+            'video_urls.*' => 'url',
+            'images' => 'nullable|array',
+            'images.*' => 'url',
+            'is_active' => 'boolean',
+        ]);
+
+        $validated['is_active'] = $request->has('is_active') ? true : ($request->input('is_active', true));
+
+        $exercise = Exercise::create($validated);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Exercise created successfully',
+            'data' => $exercise,
+        ], 201);
+    }
+
+    /**
+     * Update the specified exercise (admin only).
+     */
+    public function update(Request $request, string $id): JsonResponse
+    {
+        $exercise = Exercise::findOrFail($id);
+
+        $validated = $request->validate([
+            'name' => 'sometimes|required|string|max:255',
+            'description' => 'nullable|string',
+            'muscle_group' => 'nullable|string|max:255',
+            'equipment' => 'nullable|string|max:255',
+            'difficulty' => 'sometimes|required|in:beginner,intermediate,advanced',
+            'instructions' => 'nullable|string',
+            'video_urls' => 'nullable|array',
+            'video_urls.*' => 'url',
+            'images' => 'nullable|array',
+            'images.*' => 'url',
+            'is_active' => 'boolean',
+        ]);
+
+        if ($request->has('is_active')) {
+            $validated['is_active'] = $request->input('is_active', true);
+        }
+
+        $exercise->update($validated);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Exercise updated successfully',
+            'data' => $exercise,
+        ]);
+    }
+
+    /**
+     * Remove the specified exercise (admin only).
+     */
+    public function destroy(string $id): JsonResponse
+    {
+        $exercise = Exercise::findOrFail($id);
+        $exercise->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Exercise deleted successfully',
+        ]);
+    }
 }
+
+
+
+
+
 

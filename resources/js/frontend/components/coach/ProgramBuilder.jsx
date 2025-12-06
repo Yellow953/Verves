@@ -141,7 +141,7 @@ const ProgramBuilder = () => {
         <h2 className="text-2xl font-bold text-gray-900">{t('coach.dashboard.myPrograms')}</h2>
         <button
           onClick={() => setShowCreateModal(true)}
-          className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all"
+          className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-2 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-900 transition-all"
         >
           {t('program.createProgram')}
         </button>
@@ -158,7 +158,7 @@ const ProgramBuilder = () => {
           <p className="text-gray-500 mb-4">{t('coach.dashboard.noPrograms')}</p>
           <button
             onClick={() => setShowCreateModal(true)}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold"
+            className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-2 rounded-lg font-semibold"
           >
             {t('program.createProgram')}
           </button>
@@ -288,7 +288,7 @@ const ProgramBuilder = () => {
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700"
+                  className="flex-1 bg-gradient-to-r from-blue-600 to-blue-800 text-white px-4 py-2 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-900"
                 >
                   {t('common.create')}
                 </button>
@@ -322,7 +322,7 @@ const ProgramBuilder = () => {
             <div className="mb-4">
               <button
                 onClick={() => setShowExerciseLibrary(!showExerciseLibrary)}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700"
+                className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-2 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-900"
               >
                 {showExerciseLibrary ? t('coach.dashboard.hideLibrary') : t('coach.dashboard.showLibrary')}
               </button>
@@ -405,4 +405,9 @@ const ProgramBuilder = () => {
 };
 
 export default ProgramBuilder;
+
+
+
+
+
 

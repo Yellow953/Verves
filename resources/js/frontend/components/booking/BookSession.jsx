@@ -218,7 +218,7 @@ const BookSession = () => {
             <p className="text-red-600">{error}</p>
             <button
               onClick={() => navigate('/')}
-              className="mt-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg"
+              className="mt-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-2 rounded-lg"
             >
               {t('common.back')}
             </button>
@@ -237,7 +237,7 @@ const BookSession = () => {
           {/* Coach Info */}
           <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border border-gray-200">
             <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-              <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-4xl text-white">
+              <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center text-4xl text-white">
                 {coach?.name?.charAt(0) || '👨‍💼'}
               </div>
               <div className="flex-1">
@@ -308,7 +308,7 @@ const BookSession = () => {
                         ${!isCurrentMonth ? 'text-gray-300' : ''}
                         ${isPastDate ? 'text-gray-300 cursor-not-allowed' : 'hover:bg-blue-50 cursor-pointer'}
                         ${isTodayDate && !isSelectedDate ? 'bg-blue-50 text-blue-600 border-2 border-blue-200' : ''}
-                        ${isSelectedDate ? 'bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-lg' : 'text-gray-700'}
+                        ${isSelectedDate ? 'bg-gradient-to-br from-blue-600 to-blue-800 text-white shadow-lg' : 'text-gray-700'}
                       `}
                     >
                       {date.getDate()}
@@ -343,7 +343,7 @@ const BookSession = () => {
                             className={`
                               px-4 py-3 rounded-lg font-medium transition-all
                               ${selectedTime === slot.time
-                                ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                                ? 'bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg'
                                 : 'bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-200'
                               }
                             `}
@@ -416,7 +416,7 @@ const BookSession = () => {
                       <button
                         type="submit"
                         disabled={submitting}
-                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-900 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {submitting ? t('common.loading') : t('booking.confirmBooking')}
                       </button>

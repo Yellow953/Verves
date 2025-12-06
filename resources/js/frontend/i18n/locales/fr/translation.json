@@ -50,6 +50,7 @@
     "home": "Accueil",
     "dashboard": "Tableau de bord",
     "forum": "Forum",
+    "services": "Services",
     "programs": "Programmes",
     "bookings": "Réservations",
     "profile": "Profil",
@@ -57,16 +58,55 @@
   },
   "forum": {
     "title": "Forum communautaire",
+    "subtitle": "Rejoignez la conversation, posez des questions et partagez votre parcours fitness",
+    "forum": "Forum",
     "categories": "Catégories",
     "topics": "Sujets",
     "posts": "Messages",
+    "topic": "Sujet",
+    "category": "Catégorie",
+    "content": "Contenu",
     "createTopic": "Créer un sujet",
+    "createTopicDesc": "Démarrer une nouvelle discussion dans le forum",
+    "topicTitle": "Titre du sujet",
+    "topicTitlePlaceholder": "Entrez un titre clair et descriptif",
+    "contentPlaceholder": "Écrivez le contenu de votre message ici...",
+    "selectCategory": "Sélectionner une catégorie",
+    "create": "Créer",
+    "creating": "Création...",
     "reply": "Répondre",
+    "postReply": "Publier la réponse",
+    "posting": "Publication...",
+    "replyPlaceholder": "Écrivez votre réponse ici...",
+    "clear": "Effacer",
+    "cancel": "Annuler",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "by": "Par",
+    "lastReply": "Dernière réponse",
+    "noReplies": "Aucune réponse pour le moment",
     "noTopics": "Aucun sujet trouvé",
     "noPosts": "Aucun message trouvé",
-    "latest": "Derniers",
-    "replies": "Réponses",
-    "views": "Vues"
+    "noCategories": "Aucune catégorie disponible",
+    "createFirstTopic": "Créer le premier sujet",
+    "searchTopics": "Rechercher des sujets...",
+    "search": "Rechercher",
+    "loading": "Chargement...",
+    "pinned": "Épinglé",
+    "locked": "Verrouillé",
+    "originalPost": "Message original",
+    "edited": "Modifié",
+    "topicLocked": "Ce sujet est verrouillé et n'accepte plus de réponses",
+    "loginToReply": "Veuillez vous connecter pour répondre à ce sujet",
+    "backToForum": "Retour au forum",
+    "confirmDeleteTopic": "Êtes-vous sûr de vouloir supprimer ce sujet? Cette action ne peut pas être annulée.",
+    "confirmDeletePost": "Êtes-vous sûr de vouloir supprimer ce message? Cette action ne peut pas être annulée.",
+    "error": {
+      "loading": "Erreur lors du chargement des données du forum",
+      "creating": "Erreur lors de la création du sujet/message",
+      "deleting": "Erreur lors de la suppression",
+      "notFound": "Sujet introuvable"
+    }
   },
   "coach": {
     "title": "Entraîneurs",
@@ -111,7 +151,20 @@
       "noExercises": "Aucun exercice ajouté pour le moment.",
       "addExercises": "Cliquez sur 'Afficher la bibliothèque d'exercices' pour ajouter des exercices.",
       "day": "Jour",
-      "selectClient": "Sélectionner un client"
+      "selectClient": "Sélectionner un client",
+      "address": "Adresse",
+      "addressPlaceholder": "Entrez l'adresse du client",
+      "medicalCase": "Cas médical",
+      "description": "Description",
+      "medicalCasePlaceholder": "Entrez les conditions médicales, blessures ou toute information pertinente...",
+      "password": "Mot de passe",
+      "optional": "Optionnel",
+      "passwordPlaceholder": "Laisser vide pour générer automatiquement",
+      "passwordHint": "Si laissé vide, un mot de passe sécurisé sera généré automatiquement",
+      "clientCreated": "Client créé avec succès!",
+      "passwordGenerated": "Un mot de passe a été généré pour ce client.",
+      "generatedPassword": "Mot de passe généré",
+      "savePassword": "Veuillez enregistrer ce mot de passe et le partager avec le client de manière sécurisée."
     }
   },
   "program": {
@@ -163,6 +216,56 @@
     "phone": "Téléphone",
     "bio": "Biographie",
     "updateProfile": "Mettre à jour le profil"
+  },
+  "coachesPage": {
+    "title": "Nos entraîneurs experts",
+    "subtitle": "Rencontrez nos entraîneurs certifiés dédiés à vous aider à atteindre vos objectifs de fitness",
+    "searchPlaceholder": "Rechercher des entraîneurs par nom...",
+    "allSpecializations": "Toutes les spécialisations",
+    "contact": "Contacter",
+    "noCoaches": "Aucun entraîneur trouvé. Essayez d'ajuster votre recherche ou vos filtres."
+  },
+  "servicesPage": {
+    "title": "Nos services",
+    "subtitle": "Solutions de fitness complètes adaptées à vos besoins",
+    "findCoach": "Trouver un entraîneur",
+    "getStarted": "Commencer",
+    "bookNow": "Réserver maintenant",
+    "joinForum": "Rejoindre le forum",
+    "personalizedCoaching": {
+      "details": "Travaillez en tête-à-tête avec des entraîneurs personnels certifiés qui conçoivent des plans d'entraînement personnalisés basés sur votre niveau de forme, vos objectifs et vos préférences. Obtenez une attention et des conseils personnalisés à chaque étape.",
+      "feature1": "Plans d'entraînement personnalisés adaptés à vos objectifs",
+      "feature2": "Séances de coaching en tête-à-tête",
+      "feature3": "Évaluations régulières des progrès",
+      "feature4": "Conseils en nutrition et mode de vie"
+    },
+    "trackProgress": {
+      "details": "Surveillez votre parcours fitness avec des analyses détaillées, des photos de progression et des outils de suivi complets. Voyez vos améliorations au fil du temps et restez motivé avec des rapports de progression visuels.",
+      "feature1": "Analyses détaillées des progrès",
+      "feature2": "Suivi des photos de progression",
+      "feature3": "Mesures corporelles et métriques",
+      "feature4": "Jalons d'atteinte des objectifs"
+    },
+    "flexibleBooking": {
+      "details": "Planifiez vos séances d'entraînement à votre convenance. Choisissez entre des séances en personne, un coaching en ligne ou une approche hybride qui correspond à votre style de vie et à votre emploi du temps.",
+      "feature1": "Séances en personne et en ligne",
+      "feature2": "Options de planification flexibles",
+      "feature3": "Système de réservation facile",
+      "feature4": "Rappels et notifications de séance"
+    },
+    "community": {
+      "details": "Connectez-vous avec une communauté dynamique d'enthousiastes du fitness. Partagez votre parcours, obtenez du soutien, posez des questions et célébrez les réalisations ensemble dans notre forum actif.",
+      "feature1": "Forum communautaire actif",
+      "feature2": "Partager les progrès et les expériences",
+      "feature3": "Obtenir du soutien et de la motivation",
+      "feature4": "Se connecter avec des personnes partageant les mêmes idées"
+    },
+    "cta": {
+      "title": "Prêt à commencer votre parcours fitness?",
+      "subtitle": "Rejoignez des milliers de membres qui transforment leur vie avec Verve",
+      "findCoach": "Trouver un entraîneur",
+      "joinCommunity": "Rejoindre la communauté"
+    }
   },
   "home": {
     "hero": {

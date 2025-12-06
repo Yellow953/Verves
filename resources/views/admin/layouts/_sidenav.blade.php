@@ -12,11 +12,25 @@
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li class="nav-item"><a href="{{ route('admin.dashboard') }}"><i class="ft-home"></i><span class="menu-title">Dashboard</span></a></li>
-            <li class="nav-item"><a href="{{ route('admin.users.index') }}"><i class="ft-users"></i><span class="menu-title">Users</span></a></li>
+            <li class="nav-item has-sub"><a href="#"><i class="ft-users"></i><span class="menu-title">Users</span></a>
+                <ul class="menu-content">
+                    <li><a href="{{ route('admin.users.index') }}"><i class="ft-list"></i><span class="menu-title">All Users</span></a></li>
+                    <li><a href="{{ route('admin.users.admins') }}"><i class="ft-user"></i><span class="menu-title">Admins</span></a></li>
+                    <li><a href="{{ route('admin.users.coaches') }}"><i class="ft-user"></i><span class="menu-title">Coaches</span></a></li>
+                    <li><a href="{{ route('admin.users.clients') }}"><i class="ft-user"></i><span class="menu-title">Clients</span></a></li>
+                </ul>
+            </li>
             <li class="nav-item"><a href="{{ route('admin.programs.index') }}"><i class="ft-layers"></i><span class="menu-title">Programs</span></a></li>
             <li class="nav-item"><a href="{{ route('admin.bookings.index') }}"><i class="ft-calendar"></i><span class="menu-title">Bookings</span></a></li>
             <li class="nav-item"><a href="{{ route('admin.subscriptions.index') }}"><i class="ft-credit-card"></i><span class="menu-title">Subscriptions</span></a></li>
-            <li class="nav-item"><a href="{{ route('admin.categories.index') }}"><i class="ft-folder"></i><span class="menu-title">Forum Categories</span></a></li>
+            <li class="nav-item has-sub"><a href="#"><i class="ft-message-square"></i><span class="menu-title">Forum Moderation</span></a>
+                <ul class="menu-content">
+                    <li><a href="{{ route('admin.categories.index') }}"><i class="ft-folder"></i><span class="menu-title">Categories</span></a></li>
+                    <li><a href="{{ route('admin.topics.index') }}"><i class="ft-file-text"></i><span class="menu-title">Topics</span></a></li>
+                    <li><a href="{{ route('admin.posts.index') }}"><i class="ft-message-circle"></i><span class="menu-title">Posts</span></a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="{{ route('admin.exercises.index') }}"><i class="ft-activity"></i><span class="menu-title">Exercises Library</span></a></li>
         </ul>
     </div>
     <div class="navigation-background"></div>

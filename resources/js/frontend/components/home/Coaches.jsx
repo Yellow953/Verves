@@ -59,9 +59,15 @@ const Coaches = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
               Meet Our Coaches
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
               Expert trainers dedicated to helping you achieve your fitness goals
             </p>
+            <a
+              href="/coaches"
+              className="inline-block bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-900 transition-all shadow-md"
+            >
+              View All Coaches →
+            </a>
           </div>
 
           {loading ? (
@@ -75,7 +81,7 @@ const Coaches = () => {
                   key={coach.id}
                   className="bg-white rounded-xl p-6 border-2 border-gray-200 hover:border-blue-500 hover:shadow-xl transition-all transform hover:-translate-y-2 text-center"
                 >
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl text-white">
+                  <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl text-white">
                     {coach.name?.charAt(0) || '👨‍💼'}
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">
@@ -93,7 +99,7 @@ const Coaches = () => {
                   )}
                   <Link
                     to={`/coaches/${coach.id}/book`}
-                    className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold text-sm hover:from-blue-700 hover:to-purple-700 transition-all"
+                    className="inline-block bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-2 rounded-lg font-semibold text-sm hover:from-blue-700 hover:to-blue-900 transition-all"
                   >
                     {t('coach.bookSession')}
                   </Link>

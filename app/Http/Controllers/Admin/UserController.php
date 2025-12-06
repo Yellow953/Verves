@@ -10,12 +10,37 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-        $query = User::query();
+        // Overview page showing counts and recent users
+        $stats = [
+            'total' => User::count(),
+            'admins' => User::where('type', 'admin')->count(),
+            'coaches' => User::where('type', 'coach')->count(),
+            'clients' => User::where('type', 'client')->count(),
+        ];
 
-        // Filter by type
-        if ($request->has('type') && $request->type) {
-            $query->where('type', $request->type);
-        }
+        $recentUsers = User::latest()->take(10)->get();
+
+        return view('admin.users.index', compact('stats', 'recentUsers'));
+    }
+
+    public function admins(Request $request)
+    {
+        return $this->getUsersByType($request, 'admin', 'Admins');
+    }
+
+    public function coaches(Request $request)
+    {
+        return $this->getUsersByType($request, 'coach', 'Coaches');
+    }
+
+    public function clients(Request $request)
+    {
+        return $this->getUsersByType($request, 'client', 'Clients');
+    }
+
+    private function getUsersByType(Request $request, $type, $title)
+    {
+        $query = User::where('type', $type);
 
         // Search
         if ($request->has('search') && $request->search) {
@@ -29,7 +54,7 @@ class UserController extends Controller
 
         $users = $query->orderBy('created_at', 'desc')->paginate(15);
 
-        return view('admin.users.index', compact('users'));
+        return view('admin.users.list', compact('users', 'type', 'title'));
     }
 
     public function show($id)
@@ -60,7 +85,14 @@ class UserController extends Controller
 
         $user->update($validated);
 
-        return redirect()->route('admin.users.index')
+        $redirectRoute = match($user->type) {
+            'admin' => 'admin.users.admins',
+            'coach' => 'admin.users.coaches',
+            'client' => 'admin.users.clients',
+            default => 'admin.users.index',
+        };
+
+        return redirect()->route($redirectRoute)
             ->with('success', 'User updated successfully');
     }
 
@@ -69,7 +101,17 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('admin.users.index')
+        $userType = $user->type;
+        $user->delete();
+
+        $redirectRoute = match($userType) {
+            'admin' => 'admin.users.admins',
+            'coach' => 'admin.users.coaches',
+            'client' => 'admin.users.clients',
+            default => 'admin.users.index',
+        };
+
+        return redirect()->route($redirectRoute)
             ->with('success', 'User deleted successfully');
     }
 }

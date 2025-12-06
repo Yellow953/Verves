@@ -50,6 +50,7 @@
     "home": "Home",
     "dashboard": "Dashboard",
     "forum": "Forum",
+    "services": "Services",
     "programs": "Programs",
     "bookings": "Bookings",
     "profile": "Profile",
@@ -57,16 +58,55 @@
   },
   "forum": {
     "title": "Community Forum",
+    "subtitle": "Join the conversation, ask questions, and share your fitness journey",
+    "forum": "Forum",
     "categories": "Categories",
     "topics": "Topics",
     "posts": "Posts",
+    "topic": "Topic",
+    "category": "Category",
+    "content": "Content",
     "createTopic": "Create Topic",
+    "createTopicDesc": "Start a new discussion in the forum",
+    "topicTitle": "Topic Title",
+    "topicTitlePlaceholder": "Enter a clear and descriptive title",
+    "contentPlaceholder": "Write your post content here...",
+    "selectCategory": "Select a category",
+    "create": "Create",
+    "creating": "Creating...",
     "reply": "Reply",
+    "postReply": "Post Reply",
+    "posting": "Posting...",
+    "replyPlaceholder": "Write your reply here...",
+    "clear": "Clear",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "by": "By",
+    "lastReply": "Last Reply",
+    "noReplies": "No replies yet",
     "noTopics": "No topics found",
     "noPosts": "No posts found",
-    "latest": "Latest",
-    "replies": "Replies",
-    "views": "Views"
+    "noCategories": "No categories available",
+    "createFirstTopic": "Create the first topic",
+    "searchTopics": "Search topics...",
+    "search": "Search",
+    "loading": "Loading...",
+    "pinned": "Pinned",
+    "locked": "Locked",
+    "originalPost": "Original Post",
+    "edited": "Edited",
+    "topicLocked": "This topic is locked and no longer accepts replies",
+    "loginToReply": "Please log in to reply to this topic",
+    "backToForum": "Back to Forum",
+    "confirmDeleteTopic": "Are you sure you want to delete this topic? This action cannot be undone.",
+    "confirmDeletePost": "Are you sure you want to delete this post? This action cannot be undone.",
+    "error": {
+      "loading": "Error loading forum data",
+      "creating": "Error creating topic/post",
+      "deleting": "Error deleting",
+      "notFound": "Topic not found"
+    }
   },
   "coach": {
     "title": "Coaches",
@@ -111,7 +151,20 @@
       "noExercises": "No exercises added yet.",
       "addExercises": "Click 'Show Exercise Library' to add exercises.",
       "day": "Day",
-      "selectClient": "Select a client"
+      "selectClient": "Select a client",
+      "address": "Address",
+      "addressPlaceholder": "Enter client's address",
+      "medicalCase": "Medical Case",
+      "description": "Description",
+      "medicalCasePlaceholder": "Enter medical conditions, injuries, or any relevant information...",
+      "password": "Password",
+      "optional": "Optional",
+      "passwordPlaceholder": "Leave empty to generate automatically",
+      "passwordHint": "If left empty, a secure password will be generated automatically",
+      "clientCreated": "Client created successfully!",
+      "passwordGenerated": "A password has been generated for this client.",
+      "generatedPassword": "Generated Password",
+      "savePassword": "Please save this password and share it with the client securely."
     }
   },
   "program": {
@@ -163,6 +216,56 @@
     "phone": "Phone",
     "bio": "Bio",
     "updateProfile": "Update Profile"
+  },
+  "coachesPage": {
+    "title": "Our Expert Coaches",
+    "subtitle": "Meet our certified trainers dedicated to helping you achieve your fitness goals",
+    "searchPlaceholder": "Search coaches by name...",
+    "allSpecializations": "All Specializations",
+    "contact": "Contact",
+    "noCoaches": "No coaches found. Try adjusting your search or filters."
+  },
+  "servicesPage": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive fitness solutions tailored to your needs",
+    "findCoach": "Find a Coach",
+    "getStarted": "Get Started",
+    "bookNow": "Book Now",
+    "joinForum": "Join Forum",
+    "personalizedCoaching": {
+      "details": "Work one-on-one with certified personal trainers who design custom workout plans based on your fitness level, goals, and preferences. Get personalized attention and guidance every step of the way.",
+      "feature1": "Custom workout plans tailored to your goals",
+      "feature2": "One-on-one coaching sessions",
+      "feature3": "Regular progress assessments",
+      "feature4": "Nutrition and lifestyle guidance"
+    },
+    "trackProgress": {
+      "details": "Monitor your fitness journey with detailed analytics, progress photos, and comprehensive tracking tools. See your improvements over time and stay motivated with visual progress reports.",
+      "feature1": "Detailed progress analytics",
+      "feature2": "Progress photo tracking",
+      "feature3": "Body measurements and metrics",
+      "feature4": "Goal achievement milestones"
+    },
+    "flexibleBooking": {
+      "details": "Schedule your training sessions at your convenience. Choose between in-person sessions, online coaching, or a hybrid approach that fits your lifestyle and schedule.",
+      "feature1": "In-person and online sessions",
+      "feature2": "Flexible scheduling options",
+      "feature3": "Easy booking system",
+      "feature4": "Session reminders and notifications"
+    },
+    "community": {
+      "details": "Connect with a vibrant community of fitness enthusiasts. Share your journey, get support, ask questions, and celebrate achievements together in our active forum.",
+      "feature1": "Active community forum",
+      "feature2": "Share progress and experiences",
+      "feature3": "Get support and motivation",
+      "feature4": "Connect with like-minded individuals"
+    },
+    "cta": {
+      "title": "Ready to Start Your Fitness Journey?",
+      "subtitle": "Join thousands of members who are transforming their lives with Verve",
+      "findCoach": "Find a Coach",
+      "joinCommunity": "Join Community"
+    }
   },
   "home": {
     "hero": {

@@ -16,6 +16,12 @@ class Admin
     public function handle(Request $request, Closure $next): Response
     {
         if (!auth()->check()) {
+            if ($request->expectsJson() || $request->is('api/*')) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Unauthenticated',
+                ], 401);
+            }
             return redirect()->route('login');
         }
 
@@ -23,6 +29,12 @@ class Admin
         
         // Check if user is admin (either type='admin' or role='admin')
         if (!$user->isAdmin()) {
+            if ($request->expectsJson() || $request->is('api/*')) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Unauthorized access. Admin privileges required.',
+                ], 403);
+            }
             abort(403, 'Unauthorized access. Admin privileges required.');
         }
 

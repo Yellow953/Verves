@@ -96,6 +96,27 @@ export const programExercisesAPI = {
     delete: (programId, id) => api.delete(`/coach/programs/${programId}/exercises/${id}`),
 };
 
+// Forum API methods
+export const forumAPI = {
+    // Categories (public)
+    getCategories: () => api.get('/categories'),
+    getCategory: (id) => api.get(`/categories/${id}`),
+    
+    // Topics (public read, auth required for write)
+    getTopics: (params = {}) => api.get('/topics', { params }),
+    getTopic: (id) => api.get(`/topics/${id}`),
+    createTopic: (data) => api.post('/topics', data),
+    updateTopic: (id, data) => api.put(`/topics/${id}`, data),
+    deleteTopic: (id) => api.delete(`/topics/${id}`),
+    
+    // Posts (public read, auth required for write)
+    getPosts: (params = {}) => api.get('/posts', { params }),
+    getPost: (id) => api.get(`/posts/${id}`),
+    createPost: (data) => api.post('/posts', data),
+    updatePost: (id, data) => api.put(`/posts/${id}`, data),
+    deletePost: (id) => api.delete(`/posts/${id}`),
+};
+
 // Helper to set token after login
 export const setAuthToken = (token) => {
     localStorage.setItem('auth_token', token);

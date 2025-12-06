@@ -12,6 +12,11 @@ import CTA from './components/home/CTA';
 import Footer from './components/layout/Footer';
 import BookSession from './components/booking/BookSession';
 import Dashboard from './components/coach/Dashboard';
+import ForumHome from './components/forum/ForumHome';
+import CategoryView from './components/forum/CategoryView';
+import TopicView from './components/forum/TopicView';
+import CoachesPage from './components/pages/CoachesPage';
+import ServicesPage from './components/pages/ServicesPage';
 
 function HomePage() {
     return (
@@ -40,8 +45,43 @@ function App() {
                             <Footer />
                         </>
                     } />
+                    <Route path="/coaches" element={
+                        <>
+                            <Header />
+                            <CoachesPage />
+                            <Footer />
+                        </>
+                    } />
                     <Route path="/coaches/:id/book" element={<BookSession />} />
+                    <Route path="/services" element={
+                        <>
+                            <Header />
+                            <ServicesPage />
+                            <Footer />
+                        </>
+                    } />
                     <Route path="/coach/dashboard" element={<Dashboard />} />
+                    <Route path="/forum" element={
+                        <>
+                            <Header />
+                            <ForumHome />
+                            <Footer />
+                        </>
+                    } />
+                    <Route path="/forum/category/:id" element={
+                        <>
+                            <Header />
+                            <CategoryView />
+                            <Footer />
+                        </>
+                    } />
+                    <Route path="/forum/topic/:id" element={
+                        <>
+                            <Header />
+                            <TopicView />
+                            <Footer />
+                        </>
+                    } />
                 </Routes>
             </div>
         </Router>

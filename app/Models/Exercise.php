@@ -55,3 +55,8 @@ class Exercise extends Model
     }
 }
 
+
+
+
+
+
