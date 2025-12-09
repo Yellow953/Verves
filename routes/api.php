@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\SubscriptionController;
 use App\Http\Controllers\Api\ClientHealthDataController;
 use App\Http\Controllers\Api\CoachController;
 use App\Http\Controllers\Api\ExerciseController;
+use App\Http\Controllers\Api\ChatbotController;
 
 // Public API routes
 Route::prefix('v1')->group(function () {
@@ -42,6 +43,9 @@ Route::prefix('v1')->group(function () {
     
     Route::get('/posts', [PostController::class, 'index'])->name('api.posts.index');
     Route::get('/posts/{id}', [PostController::class, 'show'])->name('api.posts.show');
+    
+    // Chatbot route (public, but can use user context if authenticated)
+    Route::post('/chatbot/chat', [ChatbotController::class, 'chat'])->name('api.chatbot.chat');
     
     // Protected API routes (require authentication)
     Route::middleware('auth:sanctum')->group(function () {

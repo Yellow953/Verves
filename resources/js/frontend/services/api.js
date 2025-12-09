@@ -117,6 +117,14 @@ export const forumAPI = {
     deletePost: (id) => api.delete(`/posts/${id}`),
 };
 
+// Chatbot API methods
+export const chatbotAPI = {
+    chat: (message, conversationHistory = []) => api.post('/chatbot/chat', {
+        message,
+        conversation_history: conversationHistory,
+    }),
+};
+
 // Helper to set token after login
 export const setAuthToken = (token) => {
     localStorage.setItem('auth_token', token);

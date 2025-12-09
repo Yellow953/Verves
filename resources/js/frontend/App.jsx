@@ -17,6 +17,7 @@ import CategoryView from './components/forum/CategoryView';
 import TopicView from './components/forum/TopicView';
 import CoachesPage from './components/pages/CoachesPage';
 import ServicesPage from './components/pages/ServicesPage';
+import Chatbot from './components/chatbot/Chatbot';
 
 function HomePage() {
     return (
@@ -83,6 +84,7 @@ function App() {
                         </>
                     } />
                 </Routes>
+                <Chatbot />
             </div>
         </Router>
     );
