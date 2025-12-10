@@ -11,33 +11,51 @@
 
     <title>Verve | Admin Login</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('login-assets/css/login.css') }}">
 </head>
 
 <body>
-    <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
-        <div class="container">
-            <div class="card login-card">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="{{ asset('login-assets/images/login.jpg') }}" alt="login" class="login-card-img">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            @yield('content')
+    <div class="login-wrapper">
+        <div class="login-container">
+            <div class="login-card">
+                <!-- Left Side - Branding -->
+                <div class="login-branding">
+                    <div class="branding-content">
+                        <div class="brand-logo">
+                            <span class="logo-text">Verve</span>
+                            <span class="logo-accent">s</span>
                         </div>
+                        <h1 class="branding-title">Admin Portal</h1>
+                        <p class="branding-subtitle">Welcome back! Please sign in to your account.</p>
+                        <div class="branding-features">
+                            <div class="feature-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure Access</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Analytics Dashboard</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-users-cog"></i>
+                                <span>User Management</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="branding-pattern"></div>
+                </div>
+
+                <!-- Right Side - Login Form -->
+                <div class="login-form-container">
+                    <div class="login-form-wrapper">
+                        @yield('content')
                     </div>
                 </div>
             </div>
         </div>
-    </main>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </div>
 </body>
 
 </html>
